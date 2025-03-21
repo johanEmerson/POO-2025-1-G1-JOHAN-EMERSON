@@ -20,7 +20,7 @@ public class Main {
 
 
     public void llamarAsistencia(){
-        System.out.println("Registrar Asistencia:");
+        System.out.println("Registrar Asistencia (P=Presente, F=Falta):");
         int i=0;
         for(Persona p: listaMatriculados){
             System.out.println(p.nombre+":");
@@ -38,10 +38,29 @@ public class Main {
     }
 
 
+    public void justificarFaltas(){
+        System.out.println("Justificar Faltas:");
+        int i=0;
+        for(Persona p: listaMatriculados){
+            if(p.estado.toUpperCase().equals("F")){
+                System.out.println(p.nombre+" Justificar (S/N)?");
+                String est=sc.next();
+                if(est.toUpperCase().charAt(0)=='S'){
+                    p.estado="J";
+                    listaMatriculados.set(i, p);
+                }
+            }
+            i++;
+        }
+    }
+
+
     public static void main(String[] args) {
             Main m=new Main();
             m.matriculados();
             m.llamarAsistencia();
+            m.listarAsistencia();
+            m.justificarFaltas();
             m.listarAsistencia();
     }
 }
