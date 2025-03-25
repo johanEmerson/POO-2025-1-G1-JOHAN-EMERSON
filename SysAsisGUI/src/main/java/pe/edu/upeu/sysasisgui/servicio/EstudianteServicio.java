@@ -34,7 +34,7 @@ public class EstudianteServicio {
         estudiantes.remove(index);
     }
 
-    public void get(Estudiante estudiante) {
+    public void deleteEntidad(Estudiante estudiante) {
         estudiantes.remove(estudiante);
     }
 
